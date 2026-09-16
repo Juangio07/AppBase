@@ -236,4 +236,11 @@
 
     --topbar-height: 76px;
 
+    /* Compatibilidad con los módulos que aún consumen tokens de layout */
+    --kentro-black: var(--FixelarBase-black);
+    --kentro-graphite: var(--FixelarBase-graphite);
+    --kentro-cobalt: var(--FixelarBase-cobalt);
+    --kentro-cyan: var(--FixelarBase-cyan);
+    --kentro-teal: var(--FixelarBase-teal);
+
 }
