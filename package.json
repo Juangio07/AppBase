@@ -6,7 +6,7 @@
   "main": "Electron/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node --check Electron/main.js && node --check Electron/preload.js && node --check Modulos/Acceso/Acceso.js && node --check Modulos/Menu/Menu.js"
+    "test": "node --check Electron/main.js && node --check Electron/preload.js && node --check Shared/Config/AppConfig.js && node --check Shared/Config/FixelarGlobal.js && node --check Modulos/Acceso/Acceso.js && node --check Modulos/Menu/Menu.js"
   },
   "engines": {
     "node": ">=20.0.0"

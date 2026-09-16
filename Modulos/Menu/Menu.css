@@ -64,8 +64,8 @@ select {
     background:
         linear-gradient(
             180deg,
-            var(--kentro-black) 0%,
-            var(--kentro-graphite) 100%
+            var(--surface-dark) 0%,
+            var(--surface-graphite) 100%
         );
 
     border-right:
@@ -464,7 +464,7 @@ select {
     padding: 15px;
 
     background:
-        var(--kentro-black);
+        var(--surface-dark);
 
     border-top:
         1px solid var(--border-sidebar);
@@ -1213,28 +1213,20 @@ select {
     background:
         #EEF3EF;
 
-    color:
-        #4E5C53;
-
     font-weight: 700;
 }
 
 
-/* KPI relacionado con la identidad principal */
-
-.stat-icon.green {
+.stat-icon.prim {
 
     background:
-        var(--brand-primary-soft);
+        var(--success-light);
 
     color:
-        var(--brand-primary-hover);
+        var(--success);
 }
 
-
-/* Estos continúan siendo colores funcionales */
-
-.stat-icon.orange {
+.stat-icon.segu {
 
     background:
         var(--warning-light);
@@ -1244,7 +1236,16 @@ select {
 }
 
 
-.stat-icon.purple {
+.stat-icon.terc {
+
+    background:
+        var(--danger-light);
+
+    color:
+        var(--danger);
+}
+
+.stat-icon.cuar {
 
     background:
         var(--credit-light);
@@ -1991,7 +1992,7 @@ tbody tr:last-child td {
         var(--radius-md);
 
     background:
-        var(--kentro-graphite);
+        var(--surface-graphite);
 
     color:
         var(--text-white);
