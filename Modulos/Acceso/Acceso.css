@@ -1,5 +1,5 @@
 /* ============================================================
-   Kentro
+   AppBase
    INTERFAZ DE ACCESO
    ============================================================ */
 
@@ -106,10 +106,10 @@
 
 
 /* ============================================================
-   LOGO Kentro DINÁMICO
+   LOGO AppBase DINÁMICO
    ============================================================ */
 
-.marca-Kentro-dinamica {
+.marca-AppBase-dinamica {
 
     display: flex;
 
@@ -127,7 +127,7 @@
    K DINÁMICA
    ============================================================ */
 
-.Kentro-k-acceso {
+.AppBase-k-acceso {
 
     width: 42px;
     height: 42px;
@@ -177,10 +177,10 @@
 
 
 /* ============================================================
-   TEXTO Kentro
+   TEXTO AppBase
    ============================================================ */
 
-.Kentro-nombre-acceso {
+.AppBase-nombre-acceso {
 
     color:
         var(--text-white);
@@ -264,10 +264,10 @@
 
 
 /* ============================================================
-   INPUT WRKentroER
+   INPUT WRAppBaseER
    ============================================================ */
 
-.input-wrKentroer {
+.input-wrAppBaseer {
 
     position: relative;
 
@@ -347,7 +347,7 @@
    CONTRASEÑA
    ============================================================ */
 
-.password-wrKentroer input {
+.password-wrAppBaseer input {
 
     padding-right: 48px;
 }
@@ -569,14 +569,14 @@
     }
 
 
-    .Kentro-k-acceso {
+    .AppBase-k-acceso {
 
         width: 38px;
         height: 38px;
     }
 
 
-    .Kentro-nombre-acceso {
+    .AppBase-nombre-acceso {
 
         font-size: 23px;
     }
@@ -589,9 +589,9 @@
     object-fit: contain;
 }
 
-.Kentro-k-acceso { object-fit: contain; background: none; mask: none; -webkit-mask: none; }
+.AppBase-k-acceso { object-fit: contain; background: none; mask: none; -webkit-mask: none; }
 
-/* Composición premium alineada con la identidad oficial de Kentro. */
+/* Composición premium alineada con la identidad oficial de AppBase. */
 .Acceso { gap: clamp(32px, 7vw, 112px); }
 .acceso-brand-panel { width: min(420px, 34vw); min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; color: var(--text-white); }
 .acceso-brand-top { display: flex; align-items: center; gap: 12px; }
@@ -614,5 +614,5 @@
 .acceso-brand-copy h2 span,.eyebrow,.acceso-security-note i { color: var(--login-accent); }
 .acceso-brand-copy p,.acceso-brand-footer,.acceso-mobile-intro p { color: var(--login-muted); }
 .Acceso-card { max-width: 410px; background: linear-gradient(155deg, rgba(15,37,71,.98), rgba(7,20,38,.98)); border-radius: 16px; }
-.Kentro-nombre-acceso { color: var(--text-white); }
+.AppBase-nombre-acceso { color: var(--text-white); }
 @media (max-width: 880px) { .Acceso { gap: 0; } .acceso-brand-panel { display: none; } .acceso-mobile-intro { display: block; margin: -4px 0 26px; text-align: center; } .acceso-mobile-intro p { margin-top: 8px; color: #AFC4DE; font-size: 13px; } }

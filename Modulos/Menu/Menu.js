@@ -1,5 +1,5 @@
 /* ============================================================
-   Kentro
+   AppBase
    DASHBOARD / MENÚ PRINCIPAL
    ============================================================ */
 
@@ -9,7 +9,7 @@
    ============================================================ */
 
 const STORAGE_KEY =
-    "Kentro_configuracion_empresa_v1";
+    "AppBase_configuracion_empresa_v1";
 
 
 /* ============================================================
@@ -289,7 +289,7 @@ function cargarLogoNegocio(
 function aplicarTemaNegocio(
     tema
 ) {
-    // La identidad oficial de Kentro no puede ser reemplazada por datos locales antiguos.
+    // La identidad oficial de AppBase no puede ser reemplazada por datos locales antiguos.
     tema = {
         primary: "#2563FF",
         hover: "#0EA5FF",
@@ -385,7 +385,7 @@ function cargarPersonalizacion() {
 
     /*
        Si todavía no existe configuración,
-       Kentro conserva sus valores predeterminados.
+       AppBase conserva sus valores predeterminados.
     */
 
     if (!configuracionGuardada) {

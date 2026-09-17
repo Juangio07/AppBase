@@ -3,7 +3,7 @@
   const app = window.FIXELAR_APP;
   if (!app) return;
 
-  document.title = document.title.replace(/Kentro/g, app.name);
+  document.title = document.title.replace(/AppBase/g, app.name);
   if (app.theme) {
     const root = document.documentElement;
     Object.entries({
@@ -26,11 +26,11 @@
       "--login-muted": app.theme.mutedText
     }).forEach(([name, value]) => { if (value) root.style.setProperty(name, value); });
   }
-  document.querySelectorAll(".acceso-imagotipo, .Kentro-imagotipo").forEach((element) => {
+  document.querySelectorAll(".acceso-imagotipo, .AppBase-imagotipo").forEach((element) => {
     element.src = app.logoFull;
     element.alt = app.name;
   });
-  document.querySelectorAll(".Kentro-logo-mini").forEach((element) => {
+  document.querySelectorAll(".AppBase-logo-mini").forEach((element) => {
     element.src = app.logoCompact;
     element.alt = app.name;
   });

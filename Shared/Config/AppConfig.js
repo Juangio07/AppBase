@@ -1,14 +1,14 @@
 "use strict";
-/* Único archivo que debe personalizarse al duplicar Kentro. */
+/* Único archivo que debe personalizarse al duplicar AppBase. */
 window.FIXELAR_APP = Object.freeze({
-  name: "Kentro",
+  name: "AppBase",
   description: "Plantilla oficial de aplicaciones Fixelar",
   logoFull: "../../Assets/Logos/ImagotipoClaro.png",
   logoCompact: "../../Assets/Logos/Logo.png",
   theme: {
-    primary: "#2563FF",
-    primaryHover: "#0EA5FF",
-    primaryLight: "#22D3EE",
+    primary: "#02ab4c",
+    primaryHover: "#02ab4c",
+    primaryLight: "#62ec1e",
     primarySoft: "#f2f1f1",
     onPrimary: "#FFFFFF",
     backgroundStart: "#071426",
@@ -17,8 +17,8 @@ window.FIXELAR_APP = Object.freeze({
     sidebarStart: "#071426",
     sidebarEnd: "#0B1E3F",
     title: "#FFFFFF",
-    accentText: "#22D3EE", /*primaryLight*/
-    accentLight: "#6dd4e6",
+    accentText: "#62ec1e", /*primaryLight*/
+    accentLight: "#96e66d",
     mutedText: "#AFC4DE"
   },
   login: {

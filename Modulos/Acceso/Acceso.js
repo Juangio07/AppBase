@@ -1,5 +1,5 @@
 /* ============================================================
-   Kentro
+   AppBase
    INTERFAZ DE ACCESO
    ============================================================ */
 
@@ -9,7 +9,7 @@
    ============================================================ */
 
 const STORAGE_KEY =
-    "Kentro_configuracion_empresa_v1";
+    "AppBase_configuracion_empresa_v1";
 
 
 /* ============================================================
@@ -104,7 +104,7 @@ function obtenerColorContraste(hex) {
    ============================================================ */
 
 function aplicarTemaNegocio(tema) {
-    // La identidad oficial de Kentro no puede ser reemplazada por datos locales antiguos.
+    // La identidad oficial de AppBase no puede ser reemplazada por datos locales antiguos.
     tema = {
         primary: "#2563FF",
         hover: "#0EA5FF",
@@ -211,7 +211,7 @@ function cargarPersonalizacion() {
     /*
        Si todavía no existe personalización,
        Variables.css mantiene los colores
-       originales de Kentro.
+       originales de AppBase.
     */
 
     if (!configuracionGuardada) {
@@ -437,13 +437,13 @@ function iniciarAcceso() {
        Primero cargamos la personalización.
 
        Esto cambia:
-       - K de Kentro
+       - K de AppBase
        - Botón
        - Focus de inputs
        - Toggle
        - Bordes
        - Resplandores
-       - Texto Kentro inferior
+       - Texto AppBase inferior
     */
 
     cargarPersonalizacion();

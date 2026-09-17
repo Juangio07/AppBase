@@ -1,5 +1,5 @@
 /* ============================================================
-   Kentro
+   AppBase
    DASHBOARD / MENÚ PRINCIPAL
    ============================================================ */
 
@@ -30,7 +30,7 @@ select {
 }
 
 
-.Kentro {
+.AppBase {
 
     width: 100%;
     height: 100vh;
@@ -118,7 +118,7 @@ select {
    LOGO COMPLETO
    ============================================================ */
 
-.logo-Kentro-dinamico {
+.logo-AppBase-dinamico {
 
     display: flex;
 
@@ -134,7 +134,7 @@ select {
    K DINÁMICA
    ============================================================ */
 
-.Kentro-k {
+.AppBase-k {
 
     display: block;
 
@@ -183,7 +183,7 @@ select {
 
 /* K cuando el menú está abierto */
 
-.Kentro-k-grande {
+.AppBase-k-grande {
 
     width: 34px;
     height: 34px;
@@ -191,10 +191,10 @@ select {
 
 
 /* ============================================================
-   PALABRA Kentro BLANCA
+   PALABRA AppBase BLANCA
    ============================================================ */
 
-.Kentro-logotipo-blanco {
+.AppBase-logotipo-blanco {
 
     width: 92px;
 
@@ -225,7 +225,7 @@ select {
 }
 
 
-.Kentro-k-mini {
+.AppBase-k-mini {
 
     width: 40px;
     height: 40px;
@@ -1835,7 +1835,7 @@ select {
 }
 
 
-.table-wrKentroer {
+.table-wrAppBaseer {
 
     width: 100%;
 
@@ -1847,7 +1847,7 @@ select {
 }
 
 
-.table-wrKentroer::-webkit-scrollbar {
+.table-wrAppBaseer::-webkit-scrollbar {
 
     width: 0;
     height: 0;
@@ -2176,6 +2176,6 @@ tbody tr:last-child td {
 }
 
 /* Recursos oficiales: imagotipo expandido y K contraída. */
-.Kentro-imagotipo { width: 154px; height: auto; display: block; object-fit: contain; }
-.Kentro-logo-mini { width: 42px; height: 42px; display: block; object-fit: contain; }
-.sidebar.collapsed .Kentro-logo-mini { width: 40px; height: 40px; }
+.AppBase-imagotipo { width: 154px; height: auto; display: block; object-fit: contain; }
+.AppBase-logo-mini { width: 42px; height: 42px; display: block; object-fit: contain; }
+.sidebar.collapsed .AppBase-logo-mini { width: 40px; height: 40px; }
