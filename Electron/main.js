@@ -9,7 +9,7 @@ function createWindow() {
     minWidth: 900,
     minHeight: 600,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, "..", "Assets", "Iconos", "App.png"),
+    icon: path.join(__dirname, "..", "Assets", "Iconos", "App.ico"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
