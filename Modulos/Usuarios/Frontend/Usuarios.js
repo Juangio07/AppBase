@@ -182,11 +182,25 @@ tabla.addEventListener("click", evento => {
 });
 
 function mostrarConfirmacionEliminar(usuario) {
+    if (window.parent !== window) {
+        window.parent.postMessage({ type: "fixelar-confirm-delete", message: `Vas a eliminar a ${usuario.nombre}. Esta acción no se puede deshacer.` }, "*");
+        usuarioPendienteEliminar = usuario;
+        return;
+    }
     usuarioPendienteEliminar = usuario;
     textoConfirmacion.textContent = `Vas a eliminar a ${usuario.nombre}. Esta acción no se puede deshacer.`;
     confirmacionEliminar.hidden = false;
     document.getElementById("cancelarEliminacion").focus();
 }
+
+window.addEventListener("message", event => {
+    if (event.data?.type !== "fixelar-confirm-delete-result" || !usuarioPendienteEliminar) return;
+    if (event.data.confirmed) {
+        usuarios = usuarios.filter(item => item.idUsuario !== usuarioPendienteEliminar.idUsuario);
+        guardarUsuarios(); renderizar(); mostrarToast("Usuario eliminado");
+    }
+    usuarioPendienteEliminar = null;
+});
 
 renderizar();
 renderizarRoles();

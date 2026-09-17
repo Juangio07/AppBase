@@ -410,3 +410,4 @@ tbody tr:hover {
     padding: 20px;
   }
 }
+.modal-backdrop:has(.confirm-modal) .confirm-modal { transform: translateY(calc(var(--topbar-height) / -2)); }

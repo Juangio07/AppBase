@@ -965,6 +965,20 @@ select {
         var(--background-hover);
 }
 
+.topbar-right { position: relative; }
+.user-menu { position: absolute; top: calc(100% + 3px); right: 0; z-index: 15; min-width: 150px; padding: 4px; background: var(--background-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); box-shadow: var(--shadow-md); }
+.user-menu[hidden] { display: none; }
+.user-menu button { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 30px; padding: 0 8px; border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--text-light); font-size: 10px; text-align: left; cursor: pointer; }
+.user-menu button i { color: var(--text-light); font-size: 11px; }
+.user-menu button:hover { background: var(--background-hover); color: var(--text-secondary); }
+.user-menu button:hover i { color: var(--warning); }
+
+.logout-backdrop { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 20px; background: rgb(7 20 38 / 55%); }
+.logout-backdrop[hidden] { display: none; }
+.logout-modal { width: min(420px, 100%); padding: 28px; background: var(--background-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); text-align: center; }
+.logout-icon { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 14px; border-radius: 50%; background: var(--warning-light); color: var(--warning); font-size: 20px; }
+.logout-modal h2 { font-size: 21px; }.logout-modal p { margin: 9px 0 22px; color: var(--text-secondary); font-size: 13px; line-height: 1.55; }.logout-actions { display: flex; justify-content: flex-end; gap: 10px; }.logout-cancel, .logout-confirm { min-height: 40px; padding: 0 16px; border-radius: var(--radius-sm); font-weight: 700; cursor: pointer; }.logout-cancel { border: 1px solid var(--border-color); background: var(--background-hover); color: var(--text-secondary); }.logout-confirm { border: 0; background: var(--warning); color: var(--text-white); }.logout-confirm:hover { background: var(--brand-primary-hover); }
+
 
 .user-avatar {
 
@@ -2198,3 +2212,6 @@ tbody tr:last-child td {
 .AppBase-imagotipo { width: 154px; height: auto; display: block; object-fit: contain; }
 .AppBase-logo-mini { width: 42px; height: 42px; display: block; object-fit: contain; }
 .sidebar.collapsed .AppBase-logo-mini { width: 40px; height: 40px; }
+#confirmacionModulo .logout-icon { background: var(--danger-light); color: var(--danger); }
+#confirmacionModulo .logout-confirm { background: var(--danger); }
+#confirmacionModulo .logout-confirm:hover { background: color-mix(in srgb, var(--danger) 85%, black); }

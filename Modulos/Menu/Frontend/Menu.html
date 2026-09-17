@@ -331,6 +331,8 @@
                 <button
                     class="user-button"
                     id="btnUsuario"
+                    aria-haspopup="true"
+                    aria-expanded="false"
                 >
 
                     <div class="user-avatar">
@@ -354,6 +356,13 @@
                     </span>
 
                 </button>
+
+                <div class="user-menu" id="menuUsuario" hidden>
+                    <button type="button" id="btnCerrarSesion">
+                        <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                        Cerrar sesión
+                    </button>
+                </div>
 
             </div>
 
@@ -1142,6 +1151,27 @@
     id="toast"
 >
     Módulo en construcción
+</div>
+
+<div class="logout-backdrop" id="confirmacionCerrarSesion" hidden>
+    <section class="logout-modal" role="alertdialog" aria-modal="true" aria-labelledby="tituloCerrarSesion">
+        <div class="logout-icon"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i></div>
+        <h2 id="tituloCerrarSesion">Cerrar sesión</h2>
+        <p>¿Deseas cerrar sesión y volver al acceso?</p>
+        <div class="logout-actions">
+            <button class="logout-cancel" id="cancelarCerrarSesion" type="button">Cancelar</button>
+            <button class="logout-confirm" id="confirmarCerrarSesion" type="button">Cerrar sesión</button>
+        </div>
+    </section>
+</div>
+
+<div class="logout-backdrop" id="confirmacionModulo" hidden>
+    <section class="logout-modal" role="alertdialog" aria-modal="true" aria-labelledby="tituloConfirmacionModulo">
+        <div class="logout-icon"><i class="fa-solid fa-trash" aria-hidden="true"></i></div>
+        <h2 id="tituloConfirmacionModulo">Confirmar acción</h2>
+        <p id="textoConfirmacionModulo"></p>
+        <div class="logout-actions"><button class="logout-cancel" id="cancelarConfirmacionModulo" type="button">Cancelar</button><button class="logout-confirm" id="aceptarConfirmacionModulo" type="button">Confirmar</button></div>
+    </section>
 </div>
 
 

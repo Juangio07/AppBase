@@ -52,6 +52,28 @@ const moduleFrame =
 const topbarTitle =
     document.querySelector(".topbar-left h1");
 
+const btnUsuario =
+    document.getElementById("btnUsuario");
+
+const menuUsuario =
+    document.getElementById("menuUsuario");
+
+const btnCerrarSesion =
+    document.getElementById("btnCerrarSesion");
+
+const confirmacionCerrarSesion =
+    document.getElementById("confirmacionCerrarSesion");
+
+const cancelarCerrarSesion =
+    document.getElementById("cancelarCerrarSesion");
+
+const confirmarCerrarSesion =
+    document.getElementById("confirmarCerrarSesion");
+
+const confirmacionModulo = document.getElementById("confirmacionModulo");
+const textoConfirmacionModulo = document.getElementById("textoConfirmacionModulo");
+let origenConfirmacionModulo = null;
+
 
 /* ============================================================
    ELEMENTOS DE EMPRESA
@@ -867,6 +889,57 @@ function iniciarMenu() {
     actualizarSaludo();
 
 }
+
+if (btnUsuario && menuUsuario) {
+    btnUsuario.addEventListener("click", event => {
+        event.stopPropagation();
+        const abierto = !menuUsuario.hidden;
+        menuUsuario.hidden = abierto;
+        btnUsuario.setAttribute("aria-expanded", String(!abierto));
+    });
+
+    document.addEventListener("click", () => {
+        menuUsuario.hidden = true;
+        btnUsuario.setAttribute("aria-expanded", "false");
+    });
+}
+
+if (btnCerrarSesion) {
+    btnCerrarSesion.addEventListener("click", () => {
+        menuUsuario.hidden = true;
+        btnUsuario.setAttribute("aria-expanded", "false");
+        confirmacionCerrarSesion.hidden = false;
+        cancelarCerrarSesion.focus();
+    });
+}
+
+cancelarCerrarSesion.addEventListener("click", () => {
+    confirmacionCerrarSesion.hidden = true;
+});
+
+confirmarCerrarSesion.addEventListener("click", () => {
+    window.location.replace("../../Acceso/Frontend/Acceso.html");
+});
+
+window.addEventListener("message", event => {
+    if (event.data?.type !== "fixelar-confirm-delete") return;
+    origenConfirmacionModulo = event.source;
+    textoConfirmacionModulo.textContent = event.data.message;
+    confirmacionModulo.hidden = false;
+    document.getElementById("cancelarConfirmacionModulo").focus();
+});
+
+document.getElementById("cancelarConfirmacionModulo").addEventListener("click", () => {
+    if (origenConfirmacionModulo) origenConfirmacionModulo.postMessage({ type: "fixelar-confirm-delete-result", confirmed: false }, "*");
+    origenConfirmacionModulo = null;
+    confirmacionModulo.hidden = true;
+});
+
+document.getElementById("aceptarConfirmacionModulo").addEventListener("click", () => {
+    if (origenConfirmacionModulo) origenConfirmacionModulo.postMessage({ type: "fixelar-confirm-delete-result", confirmed: true }, "*");
+    origenConfirmacionModulo = null;
+    confirmacionModulo.hidden = true;
+});
 
 window.addEventListener("storage", event => {
     if (event.key === STORAGE_KEY) {
