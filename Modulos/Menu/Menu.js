@@ -289,14 +289,7 @@ function cargarLogoNegocio(
 function aplicarTemaNegocio(
     tema
 ) {
-    // La identidad oficial de AppBase no puede ser reemplazada por datos locales antiguos.
-    tema = {
-        primary: "#2563FF",
-        hover: "#0EA5FF",
-        light: "#22D3EE",
-        soft: "#DBF7FF",
-        onPrimary: "#FFFFFF"
-    };
+    if (!tema || !tema.primary) return;
 
 
     const root =
@@ -408,15 +401,6 @@ function cargarPersonalizacion() {
             JSON.parse(
                 configuracionGuardada
             );
-
-
-        /* ====================================================
-           TEMA / COLORES
-           ==================================================== */
-
-        aplicarTemaNegocio(
-            configuracion.tema
-        );
 
 
         /* ====================================================

@@ -104,14 +104,7 @@ function obtenerColorContraste(hex) {
    ============================================================ */
 
 function aplicarTemaNegocio(tema) {
-    // La identidad oficial de AppBase no puede ser reemplazada por datos locales antiguos.
-    tema = {
-        primary: "#2563FF",
-        hover: "#0EA5FF",
-        light: "#22D3EE",
-        soft: "#DBF7FF",
-        onPrimary: "#FFFFFF"
-    };
+    if (!tema || !tema.primary) return;
 
 
     const root =
@@ -228,17 +221,6 @@ function cargarPersonalizacion() {
                 configuracionGuardada
             );
 
-
-        if (
-            configuracion.tema &&
-            configuracion.tema.primary
-        ) {
-
-            aplicarTemaNegocio(
-                configuracion.tema
-            );
-
-        }
 
     }
 
