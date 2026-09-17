@@ -3,7 +3,7 @@
   const app = window.FIXELAR_APP;
   if (!app) return;
 
-  document.title = document.title.replace(/FixelarBase/g, app.name);
+  document.title = document.title.replace(/Fixelar Web/g, app.name);
   if (app.theme) {
     const root = document.documentElement;
     Object.entries({
@@ -23,14 +23,15 @@
       "--login-background-end": app.theme.backgroundEnd,
       "--login-title": app.theme.title,
       "--login-accent": app.theme.accentText,
-      "--login-muted": app.theme.mutedText
+      "--login-muted": app.theme.mutedText,
+      "--font-family": app.typography || "Inter"
     }).forEach(([name, value]) => { if (value) root.style.setProperty(name, value); });
   }
-  document.querySelectorAll(".acceso-imagotipo, .FixelarBase-imagotipo").forEach((element) => {
+  document.querySelectorAll("[data-fixelar-logo]").forEach((element) => {
     element.src = app.logoFull;
     element.alt = app.name;
   });
-  document.querySelectorAll(".FixelarBase-logo-mini").forEach((element) => {
+  document.querySelectorAll("[data-fixelar-logo-compact]").forEach((element) => {
     element.src = app.logoCompact;
     element.alt = app.name;
   });
