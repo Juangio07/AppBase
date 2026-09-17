@@ -681,6 +681,14 @@ navItems.forEach(
                     return;
                 }
 
+                if (moduloNormalizado === "configuracion") {
+                    dashboard.hidden = true;
+                    moduleFrame.src = "../../Configuracion/Frontend/Configuracion.html";
+                    moduleFrame.hidden = false;
+                    if (topbarTitle) topbarTitle.textContent = "Configuración";
+                    return;
+                }
+
                 if (
                     moduloNormalizado !==
                     "inicio"
@@ -859,6 +867,12 @@ function iniciarMenu() {
     actualizarSaludo();
 
 }
+
+window.addEventListener("storage", event => {
+    if (event.key === STORAGE_KEY) {
+        cargarPersonalizacion();
+    }
+});
 
 
 /* ============================================================

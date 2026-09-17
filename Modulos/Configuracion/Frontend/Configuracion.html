@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppBase | Configuración</title>
+  <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../Shared/Css/Variables.css"><link rel="stylesheet" href="../../../Shared/Css/Global.css"><link rel="stylesheet" href="Configuracion.css">
+  <script defer src="../../../Shared/Config/AppConfig.js"></script><script defer src="../../../Shared/Config/FixelarGlobal.js"></script>
+</head>
+<body>
+  <main class="config-page">
+    <header class="config-header"><div><span class="config-eyebrow">ADMINISTRACIÓN</span><h1>Configuración</h1><p>Administra la información principal de tu empresa.</p></div></header>
+    <section class="config-card">
+      <div class="config-card-header"><div><h2>Información de la empresa</h2><p>Estos datos identifican a tu empresa dentro de AppBase.</p></div><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+      <form id="formularioEmpresa" novalidate>
+        <div class="company-layout">
+          <div class="logo-column"><div class="company-logo" id="vistaLogo"><span id="inicialEmpresa">N</span><img id="imagenEmpresa" alt="Logo de la empresa" hidden></div><input id="logoEmpresa" type="file" accept="image/png,image/jpeg,image/webp" hidden><button class="btn-secondary" id="seleccionarLogo" type="button"><i class="fa-solid fa-image" aria-hidden="true"></i> Agregar logo</button><button class="text-button" id="quitarLogo" type="button" hidden>Quitar logo</button><small>Opcional</small></div>
+          <div class="company-fields">
+            <label><span class="label-caption">NIT/CC <span class="required-mark">*</span></span><input id="nit" type="text" required></label>
+            <label><span class="label-caption">Nombre <span class="required-mark">*</span></span><input id="nombre" type="text" required></label>
+            <label><span class="label-caption">Propietario <span class="required-mark">*</span></span><input id="propietario" type="text" required></label>
+            <label><span class="label-caption">Teléfono <span class="required-mark">*</span></span><input id="telefono" type="tel" required></label>
+            <label><span class="label-caption">Correo <span class="required-mark">*</span></span><input id="correo" type="email" required></label>
+            <label><span class="label-caption">Ubicación <span class="required-mark">*</span></span><input id="ubicacion" type="text" required></label>
+          </div>
+        </div>
+        <p class="form-message" id="mensajeConfiguracion" role="alert"></p>
+        <div class="form-actions"><button class="btn-primary" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Guardar cambios</button></div>
+      </form>
+    </section>
+  </main>
+  <div class="config-toast" id="toastConfiguracion" role="status" aria-live="polite"></div>
+  <script src="Configuracion.js"></script>
+</body>
+</html>
