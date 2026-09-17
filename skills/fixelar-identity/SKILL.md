@@ -72,44 +72,102 @@ Conservar la línea visual de Acceso y Menu en:
 
 No introducir emojis, librerías de iconos incompatibles, colores aislados ni componentes que parezcan pertenecer a otro producto.
 
-## Estilo de módulos funcionales
+## Plantilla visual común de módulos
 
-Todo módulo nuevo debe seguir el patrón visual establecido por el módulo de Usuarios, adaptándolo a su propia responsabilidad sin copiar lógica de negocio.
+Los módulos de Usuarios y Roles establecen la plantilla inicial de todos los módulos funcionales de la aplicación. Un módulo nuevo no debe diseñarse desde cero: debe conservar esta distribución y cambiar únicamente la información, los campos, las columnas y las funcionalidades propias de su dominio.
 
-### Estructura de pantalla
+La similitud entre módulos debe ser intencional. Productos, Ventas, Inventario, Reportes y cualquier módulo futuro deben parecer parte de la misma aplicación, aunque sus reglas de negocio sean diferentes.
 
-- Encabezado con eyebrow o clasificación, título y descripción breve.
-- Acción principal visible y coherente con el botón de Acceso.
-- Barra de búsqueda, filtros y contador cuando el módulo gestione listados.
-- Panel o tarjeta principal con borde, radio y sombra del sistema.
-- Estados vacíos claros, centrados y útiles.
-- Feedback visual mediante mensajes o toast coherentes con Fixelar.
+### Estructura base de pantalla
+
+Mantener, en este orden y con dimensiones equivalentes a Usuarios y Roles:
+
+- Encabezado con eyebrow o clasificación.
+- Título y descripción breve.
+- Acción principal en la misma posición, usando el botón de identidad Fixelar.
+- Barra de búsqueda con las mismas dimensiones.
+- Filtros alineados en la misma posición.
+- Contador de registros.
+- Tarjeta principal con borde, radio, sombra y overflow coherentes.
+- Tabla o listado con la misma jerarquía visual.
+- Estado vacío centrado y explicativo.
+- Paginación ubicada debajo del control principal.
+- Toasts y mensajes de feedback con el mismo lenguaje visual.
+
+No cambiar la distribución general para un módulo nuevo salvo que exista una necesidad funcional justificada.
+
+### Barra de búsqueda, filtros y paginación
+
+- La barra de búsqueda debe conservar el ancho, alto, padding, borde, radio y estado de foco de Usuarios.
+- Los filtros deben conservar la misma altura, separación y posición relativa.
+- El contador debe permanecer alineado al extremo derecho en pantallas amplias y adaptarse correctamente en responsive.
+- Los filtros deben mantenerse al editar, eliminar o cambiar el estado de un registro cuando el flujo continúe en el mismo listado.
+- La paginación debe mostrarse debajo de la tabla o control principal, nunca dentro de un formulario modal.
+- Mostrar como máximo tres números de página por grupo.
+- Mostrar solo números que existan realmente.
+- Las flechas deben avanzar o retroceder una página y deshabilitarse únicamente en el primer o último registro de paginación.
+- Si existen una, dos o tres páginas, mostrar exactamente las páginas disponibles.
+
+### Tablas y acciones
+
+- Mantener encabezados, filas, estados y acciones con la jerarquía visual de Usuarios y Roles.
+- Mostrar nombres legibles en lugar de identificadores internos cuando exista una relación; conservar el ID solo internamente.
+- Usar acciones con nombres de clase claros según su intención: `edit`, `deactivate`, `delete` u otros equivalentes.
+- Editar debe utilizar el estado semántico `success`.
+- Activar o inactivar debe utilizar el estado semántico `warning`.
+- Eliminar debe utilizar el estado semántico `danger`.
+- Los estados activo e inactivo deben distinguirse mediante color, texto y semántica accesible.
+- Mantener acciones, tamaños, separación e iconografía consistentes entre módulos.
 
 ### Formularios y modales
 
-- Usar tarjetas modales con el mismo lenguaje de bordes, radios, sombras y espaciado.
-- Los campos obligatorios deben indicarse visualmente con asterisco.
-- Las validaciones deben marcar el campo afectado y mostrar un mensaje claro.
-- Los inputs, selects y botones deben compartir alturas, radios y estados de foco.
-- Las contraseñas deben incluir confirmación y control mostrar/ocultar cuando aplique.
-- Las confirmaciones destructivas deben utilizar un diálogo visual Fixelar, no una interacción sin contexto.
+- Usar modales con las mismas dimensiones, bordes, radios, sombras y espaciado de Usuarios y Roles.
+- Mantener la distribución de campos y botones: título, campos, mensaje de validación y acciones inferiores.
+- Los campos obligatorios deben identificarse con un asterisco junto a la etiqueta.
+- Las validaciones deben marcar visualmente el campo afectado y mostrar un mensaje claro.
+- Inputs y selects deben compartir alturas, padding, radios, bordes y estados de foco.
+- Las contraseñas deben incluir confirmación y controles mostrar/ocultar cuando aplique.
+- Las confirmaciones destructivas deben utilizar un diálogo visual Fixelar con acciones claras.
+- Los botones de guardar y cancelar deben conservar su jerarquía y posición.
 
-### Tablas y controles
+### Permisos y controles de Roles
 
-- Mantener encabezados, filas, estados y acciones con la jerarquía de Usuarios.
-- Mostrar nombres legibles en lugar de identificadores internos cuando exista una relación, conservando el ID solo internamente.
-- Usar estados semánticos: editar en `success`, activar/inactivar en `warning` y eliminar en `danger`.
-- Las acciones deben usar nombres de clase claros según su intención: `edit`, `deactivate`, `delete` u otros equivalentes.
-- Incluir búsqueda, filtros, estados vacíos y paginación cuando el volumen lo justifique.
-- Agrupar la paginación para evitar listados antiestéticos; mostrar como máximo tres números por grupo y no mostrar páginas inexistentes.
-- Mantener búsqueda, filtros y página al editar o cambiar estados, salvo que el flujo requiera explícitamente reiniciarlos.
+El módulo de Roles es la referencia para administrar acceso y permisos sin alterar la plantilla visual común:
 
-### Colores y estados
+- Todos los módulos existentes aparecen habilitados inicialmente.
+- El rol autorizado puede quitar acceso a módulos específicos.
+- Sin acceso a un módulo, este no debe aparecer ni poder abrirse directamente.
+- Los permisos iniciales por módulo son: ver, registrar, editar, eliminar y activar/inactivar.
+- La sección de permisos debe conservar el patrón de tarjetas, filas, bordes, espaciado y controles de Roles.
+- La lógica de permisos pertenece al módulo o backend correspondiente; la plantilla visual no debe copiar reglas de negocio a otros módulos.
 
-- El botón principal de los módulos debe seguir la identidad del botón “Iniciar sesión”, usando las variables de marca configuradas.
-- Los estados de éxito, advertencia y peligro deben usar las variables semánticas compartidas.
-- No introducir valores hexadecimales nuevos en un módulo cuando exista un token reutilizable.
-- Los estados activo e inactivo deben ser distinguibles visualmente y también mediante texto o semántica accesible.
+### Colores, estados e iconos
+
+- El botón principal de cada módulo debe seguir la identidad del botón “Iniciar sesión”, usando variables de marca configuradas.
+- Los estados de éxito, advertencia y peligro deben usar `--success`, `--warning`, `--danger` y sus variantes claras.
+- No introducir valores hexadecimales nuevos cuando exista un token reutilizable.
+- Los logos deben configurarse desde `AppConfig.js`.
+- Las interfaces deben usar Font Awesome Classic Solid.
+- Los iconos deben comunicar la acción sin introducir emojis ni sistemas visuales ajenos.
+
+### Responsive y accesibilidad
+
+- Mantener el comportamiento responsive de Usuarios y Roles como referencia.
+- En pantallas pequeñas, apilar encabezado, búsqueda, filtros y contador sin perder jerarquía.
+- Permitir desplazamiento horizontal controlado en tablas anchas.
+- Mantener foco visible, etiquetas asociadas, `aria-label`, `aria-live` y roles adecuados.
+- Los estados no deben depender únicamente del color.
+
+### Adaptación por módulo
+
+La plantilla permanece estable; solo cambia la información específica:
+
+- Usuarios: nombre, documento, teléfono, rol, estado y acciones.
+- Roles: nombre, descripción, módulos, permisos, estado y acciones.
+- Productos: nombre, categoría, precio, inventario, estado y acciones.
+- Ventas: cliente, fecha, total, estado y acciones.
+
+Estos ejemplos orientan la adaptación visual. No autorizan a inventar entidades, permisos o reglas comerciales que no estén definidos.
 
 ## Arquitectura de módulos
 
