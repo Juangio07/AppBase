@@ -43,6 +43,15 @@ const saludo =
 const quickActions =
     document.querySelectorAll("[data-action]");
 
+const dashboard =
+    document.querySelector(".dashboard");
+
+const moduleFrame =
+    document.getElementById("moduleFrame");
+
+const topbarTitle =
+    document.querySelector(".topbar-left h1");
+
 
 /* ============================================================
    ELEMENTOS DE EMPRESA
@@ -648,14 +657,27 @@ navItems.forEach(
                 );
 
 
+                if (moduloNormalizado === "inicio") {
+                    dashboard.hidden = false;
+                    moduleFrame.hidden = true;
+                    moduleFrame.removeAttribute("src");
+                    if (topbarTitle) topbarTitle.textContent = "Panel principal";
+                    return;
+                }
+
+                if (moduloNormalizado === "usuarios") {
+                    dashboard.hidden = true;
+                    moduleFrame.src = "../Usuarios/Frontend/Usuarios.html";
+                    moduleFrame.hidden = false;
+                    if (topbarTitle) topbarTitle.textContent = "Usuarios";
+                    return;
+                }
+
                 if (
                     moduloNormalizado !==
                     "inicio"
                 ) {
-
-                    mostrarToast(
-                        `${modulo}: módulo en construcción`
-                    );
+                    mostrarToast(`${modulo}: módulo en construcción`);
 
                 }
 

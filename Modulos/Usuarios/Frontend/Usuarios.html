@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppBase | Usuarios</title>
+    <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../../Shared/Css/Variables.css">
+    <link rel="stylesheet" href="../../../Shared/Css/Global.css">
+    <link rel="stylesheet" href="Usuarios.css">
+    <script defer src="../../../Shared/Config/AppConfig.js"></script>
+    <script defer src="../../../Shared/Config/FixelarGlobal.js"></script>
+</head>
+<body>
+    <main class="usuarios-page">
+        <header class="usuarios-header">
+            <div>
+                <span class="usuarios-eyebrow">CONTROL DE ACCESO</span>
+                <h1>Usuarios</h1>
+                <p>Administra los usuarios que tienen acceso a la aplicación.</p>
+            </div>
+            <button class="btn-primary usuarios-add" id="nuevoUsuario" type="button">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                Agregar usuario
+            </button>
+        </header>
+
+        <section class="usuarios-toolbar" aria-label="Herramientas de usuarios">
+            <label class="usuarios-search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <span class="sr-only">Buscar usuarios</span>
+                <input id="buscarUsuarios" type="search" placeholder="Buscar por nombre, documento o usuario" autocomplete="off">
+            </label>
+            <label class="status-filter">
+                <span class="sr-only">Filtrar por estado</span>
+                <select id="filtroEstado">
+                    <option value="all">Todos los estados</option>
+                    <option value="active">Activos</option>
+                    <option value="inactive">Inactivos</option>
+                </select>
+            </label>
+            <span class="usuarios-count" id="contadorUsuarios">0 usuarios</span>
+        </section>
+
+        <section class="usuarios-card">
+            <div class="usuarios-table-wrap">
+                <table>
+                    <caption class="sr-only">Listado de usuarios registrados</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col" class="actions-heading">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaUsuarios"></tbody>
+                </table>
+                <div class="usuarios-empty" id="estadoVacio">
+                    <i class="fa-solid fa-users-slash" aria-hidden="true"></i>
+                    <strong>No hay usuarios para mostrar</strong>
+                    <span>Agrega el primer usuario para comenzar.</span>
+                </div>
+            </div>
+        </section>
+        <nav class="pagination" id="paginacion" aria-label="Paginación de usuarios" hidden></nav>
+    </main>
+
+    <div class="modal-backdrop" id="modalUsuario" hidden>
+        <section class="usuario-modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+            <div class="modal-header">
+                <div>
+                    <span class="usuarios-eyebrow">REGISTRO DE USUARIO</span>
+                    <h2 id="tituloModal">Agregar usuario</h2>
+                </div>
+                <button class="icon-button" id="cerrarModal" type="button" aria-label="Cerrar formulario">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <form id="formularioUsuario" novalidate>
+                <input id="idUsuario" type="hidden">
+                <div class="form-grid">
+                    <label><span class="label-caption">Rol <span class="required-mark" aria-hidden="true">*</span></span><select id="idRol" required></select></label>
+                    <label><span class="label-caption">Documento <span class="required-mark" aria-hidden="true">*</span></span><input id="documento" type="text" required></label>
+                    <label class="field-wide"><span class="label-caption">Nombre <span class="required-mark" aria-hidden="true">*</span></span><input id="nombre" type="text" required></label>
+                    <label><span class="label-caption">Teléfono <span class="required-mark" aria-hidden="true">*</span></span><input id="telefono" type="tel" required></label>
+                    <label><span class="label-caption">Usuario <span class="required-mark" aria-hidden="true">*</span></span><input id="usuario" type="text" required autocomplete="username"></label>
+                    <label><span class="label-caption">Contraseña <span class="required-mark" aria-hidden="true">*</span></span>
+                        <span class="password-field">
+                            <input id="contrasena" type="password" required autocomplete="new-password">
+                            <button class="password-toggle" id="mostrarContrasena" type="button" aria-label="Mostrar contraseña" title="Mostrar contraseña"><i class="fa-solid fa-toggle-off" aria-hidden="true"></i></button>
+                        </span>
+                    </label>
+                    <label><span class="label-caption">Confirmar contraseña <span class="required-mark" aria-hidden="true">*</span></span>
+                        <span class="password-field">
+                            <input id="confirmarContrasena" type="password" required autocomplete="new-password">
+                            <button class="password-toggle" id="mostrarConfirmarContrasena" type="button" aria-label="Mostrar confirmación de contraseña" title="Mostrar confirmación de contraseña"><i class="fa-solid fa-toggle-off" aria-hidden="true"></i></button>
+                        </span>
+                    </label>
+                </div>
+                <p class="form-message" id="mensajeFormulario" role="alert"></p>
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="cancelarModal" type="button">Cancelar</button>
+                    <button class="btn-primary" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Guardar usuario</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="usuarios-toast" id="toastUsuarios" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="confirmacionEliminar" hidden>
+        <section class="confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="tituloConfirmacion">
+            <div class="confirm-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div>
+            <h2 id="tituloConfirmacion">Eliminar usuario</h2>
+            <p id="textoConfirmacion"></p>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="cancelarEliminacion" type="button">Cancelar</button>
+                <button class="btn-danger" id="confirmarEliminacion" type="button"><i class="fa-solid fa-trash" aria-hidden="true"></i> Eliminar</button>
+            </div>
+        </section>
+    </div>
+    <script src="Usuarios.js"></script>
+</body>
+</html>

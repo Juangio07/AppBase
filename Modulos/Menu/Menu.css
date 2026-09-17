@@ -640,6 +640,18 @@ select {
     overflow: hidden;
 }
 
+.module-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    border: 0;
+    background: var(--background-main);
+}
+
+.module-frame[hidden] {
+    display: none;
+}
+
 
 /* ============================================================
    TOPBAR
