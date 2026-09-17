@@ -673,6 +673,14 @@ navItems.forEach(
                     return;
                 }
 
+                if (moduloNormalizado === "roles") {
+                    dashboard.hidden = true;
+                    moduleFrame.src = "../Roles/Frontend/Roles.html";
+                    moduleFrame.hidden = false;
+                    if (topbarTitle) topbarTitle.textContent = "Roles";
+                    return;
+                }
+
                 if (
                     moduloNormalizado !==
                     "inicio"

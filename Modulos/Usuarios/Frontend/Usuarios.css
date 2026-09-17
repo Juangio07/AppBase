@@ -76,8 +76,9 @@
 .usuarios-search {
   display: flex;
   align-items: center;
+  flex: 0 0 430px;
   gap: 10px;
-  width: min(430px, 100%);
+  width: 430px;
   height: 42px;
   padding: 0 14px;
   background: var(--background-card);
@@ -105,8 +106,10 @@
   color: var(--text-secondary);
   outline: 0;
 }
+.status-filter { flex: 0 0 auto; }
 .status-filter select:focus { border-color: var(--brand-primary); box-shadow: var(--focus-brand); }
 .usuarios-count {
+  margin-left: auto;
   color: var(--text-secondary);
   font-size: 13px;
 }
@@ -394,6 +397,8 @@ tbody tr:hover {
   .usuarios-search {
     width: 100%;
   }
+  .usuarios-search { flex-basis: auto; }
+  .usuarios-count { margin-left: 0; }
   .status-filter select { width: 100%; }
   .form-grid {
     grid-template-columns: 1fr;
