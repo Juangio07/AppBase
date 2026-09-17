@@ -667,7 +667,7 @@ navItems.forEach(
 
                 if (moduloNormalizado === "usuarios") {
                     dashboard.hidden = true;
-                    moduleFrame.src = "../Usuarios/Frontend/Usuarios.html";
+                    moduleFrame.src = "../../Usuarios/Frontend/Usuarios.html";
                     moduleFrame.hidden = false;
                     if (topbarTitle) topbarTitle.textContent = "Usuarios";
                     return;
@@ -675,7 +675,7 @@ navItems.forEach(
 
                 if (moduloNormalizado === "roles") {
                     dashboard.hidden = true;
-                    moduleFrame.src = "../Roles/Frontend/Roles.html";
+                    moduleFrame.src = "../../Roles/Frontend/Roles.html";
                     moduleFrame.hidden = false;
                     if (topbarTitle) topbarTitle.textContent = "Roles";
                     return;

@@ -400,7 +400,7 @@ if (formulario) {
                ================================================= */
 
             window.location.replace(
-                "../Menu/Menu.html"
+                "../../Menu/Frontend/Menu.html"
             );
 
         }

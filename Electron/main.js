@@ -16,7 +16,7 @@ function createWindow() {
       nodeIntegration: false
     }
   });
-  return window.loadFile(path.join(__dirname, "..", "Modulos", "Acceso", "Acceso.html"));
+  return window.loadFile(path.join(__dirname, "..", "Modulos", "Acceso", "Frontend", "Acceso.html"));
 }
 
 app.whenReady().then(createWindow);

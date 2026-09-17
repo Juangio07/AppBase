@@ -3,8 +3,8 @@
 window.FIXELAR_APP = Object.freeze({
   name: "AppBase",
   description: "Plantilla oficial de aplicaciones Fixelar",
-  logoFull: "../../Assets/Logos/ImagotipoClaro.png",
-  logoCompact: "../../Assets/Logos/Logo.png",
+  logoFull: "../../../Assets/Logos/ImagotipoClaro.png",
+  logoCompact: "../../../Assets/Logos/Logo.png",
   theme: {
     primary: "#02ab4c",
     primaryHover: "#02ab4c",
