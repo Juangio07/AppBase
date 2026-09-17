@@ -150,6 +150,41 @@ El módulo de Roles es la referencia para administrar acceso y permisos sin alte
 - Las interfaces deben usar Font Awesome Classic Solid.
 - Los iconos deben comunicar la acción sin introducir emojis ni sistemas visuales ajenos.
 
+## Plantilla del sistema de alertas
+
+Todas las alertas del sistema deben utilizar una plantilla visual común, tomando como referencia la alerta de eliminación implementada en Usuarios, Roles y Menu.
+
+La estructura no debe cambiar entre módulos:
+
+- Overlay semitransparente cubriendo toda la aplicación.
+- Alerta centrada horizontal y verticalmente sobre el sistema completo.
+- Icono superior dentro de un círculo.
+- Título claro.
+- Mensaje breve y contextual.
+- Acciones alineadas y consistentes.
+- Mismos tamaños, bordes, radios, sombras, espaciados y estados de foco.
+
+Cada alerta debe modificar únicamente la información que representa su propósito:
+
+- Mensaje.
+- Título.
+- Color semántico.
+- Icono Font Awesome.
+- Texto y acción de los botones.
+
+Usar las variables semánticas del sistema según el tipo de alerta:
+
+- Eliminación o peligro: `--danger`, `--danger-light`, `fa-solid fa-trash`.
+- Advertencia: `--warning`, `--warning-light`, `fa-solid fa-triangle-exclamation`.
+- Éxito: `--success`, `--success-light`, `fa-solid fa-circle-check`.
+- Información: color de identidad o variable informativa disponible, `fa-solid fa-circle-info`.
+
+Las alertas destructivas deben explicar que la acción puede ser irreversible y ofrecer siempre una cancelación clara. No usar alertas nativas del navegador cuando el flujo requiera conservar la identidad visual Fixelar.
+
+La alerta debe renderizarse sobre el AppShell completo, incluyendo sidebar, topbar y contenido. Los módulos cargados dentro del panel principal deben solicitar la alerta al contenedor principal cuando necesiten cubrir toda la aplicación; no deben limitarla al área interna del módulo.
+
+Los futuros módulos deben reutilizar esta plantilla y cambiar solo el tipo, mensaje, icono, color y acciones necesarios para cada caso.
+
 ### Responsive y accesibilidad
 
 - Mantener el comportamiento responsive de Usuarios y Roles como referencia.
