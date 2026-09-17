@@ -1,14 +1,18 @@
 {
-  "name": "fixelar-web",
+  "name": "FixelarBase-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Sitio institucional oficial de Fixelar.",
+  "description": "FixelarBase, aplicación de gestión empresarial desarrollada por Fixelar.",
+  "main": "Electron/main.js",
   "scripts": {
-    "start": "node --input-type=module -e \"console.log('Fixelar Web: abre Modulos/Inicio/Frontend/Inicio.html en un navegador')\"",
-    "test": "node --check Shared/Config/AppConfig.js && node --check Shared/Config/FixelarGlobal.js && node --check Modulos/Inicio/Frontend/Inicio.js"
+    "start": "electron .",
+    "test": "node --check Electron/main.js && node --check Electron/preload.js && node --check Shared/Config/AppConfig.js && node --check Shared/Config/FixelarGlobal.js && node --check Modulos/Acceso/Acceso.js && node --check Modulos/Menu/Menu.js"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "electron": "^44.1.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.1"

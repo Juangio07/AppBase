@@ -3,7 +3,7 @@
   const app = window.FIXELAR_APP;
   if (!app) return;
 
-  document.title = document.title.replace(/Fixelar Web/g, app.name);
+  document.title = document.title.replace(/Kentro/g, app.name);
   if (app.theme) {
     const root = document.documentElement;
     Object.entries({
@@ -23,15 +23,14 @@
       "--login-background-end": app.theme.backgroundEnd,
       "--login-title": app.theme.title,
       "--login-accent": app.theme.accentText,
-      "--login-muted": app.theme.mutedText,
-      "--font-family": app.typography || "Inter"
+      "--login-muted": app.theme.mutedText
     }).forEach(([name, value]) => { if (value) root.style.setProperty(name, value); });
   }
-  document.querySelectorAll("[data-fixelar-logo]").forEach((element) => {
+  document.querySelectorAll(".acceso-imagotipo, .Kentro-imagotipo").forEach((element) => {
     element.src = app.logoFull;
     element.alt = app.name;
   });
-  document.querySelectorAll("[data-fixelar-logo-compact]").forEach((element) => {
+  document.querySelectorAll(".Kentro-logo-mini").forEach((element) => {
     element.src = app.logoCompact;
     element.alt = app.name;
   });
