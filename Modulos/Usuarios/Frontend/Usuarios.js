@@ -103,9 +103,9 @@ function renderizarPaginacion(totalPaginas, totalRegistros) {
     if (totalRegistros === 0) return;
     const grupoInicio = Math.floor((paginaActual - 1) / 3) * 3 + 1;
     const grupoFin = Math.min(grupoInicio + 2, totalPaginas);
-    const paginaAnteriorGrupo = grupoInicio - 1;
-    const paginaSiguienteGrupo = grupoFin + 1;
-    paginacion.innerHTML = `<button class="page-button" type="button" data-page="${paginaAnteriorGrupo}" ${paginaAnteriorGrupo < 1 ? "disabled" : ""} aria-label="Grupo anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>${Array.from({ length: grupoFin - grupoInicio + 1 }, (_, indice) => { const pagina = grupoInicio + indice; return `<button class="page-button ${pagina === paginaActual ? "active" : ""}" type="button" data-page="${pagina}" aria-current="${pagina === paginaActual ? "page" : "false"}">${pagina}</button>`; }).join("")}<button class="page-button" type="button" data-page="${paginaSiguienteGrupo}" ${paginaSiguienteGrupo > totalPaginas ? "disabled" : ""} aria-label="Grupo siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>`;
+    const paginaAnterior = paginaActual - 1;
+    const paginaSiguiente = paginaActual + 1;
+    paginacion.innerHTML = `<button class="page-button" type="button" data-page="${paginaAnterior}" ${paginaAnterior < 1 ? "disabled" : ""} aria-label="Página anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>${Array.from({ length: grupoFin - grupoInicio + 1 }, (_, indice) => { const pagina = grupoInicio + indice; return `<button class="page-button ${pagina === paginaActual ? "active" : ""}" type="button" data-page="${pagina}" aria-current="${pagina === paginaActual ? "page" : "false"}">${pagina}</button>`; }).join("")}<button class="page-button" type="button" data-page="${paginaSiguiente}" ${paginaSiguiente > totalPaginas ? "disabled" : ""} aria-label="Página siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>`;
 }
 
 function abrirModal(usuario) {
