@@ -742,6 +742,9 @@ select {
     border:
         1px solid var(--border-color);
 
+    border-top:
+        1px solid var(--border-color);
+
     border-radius: 9px;
 
     background:
@@ -765,7 +768,7 @@ select {
         var(--brand-primary-soft);
 
     border-color:
-        var(--brand-primary);
+        var(--border-color);
 
     color:
         var(--brand-primary-hover);
@@ -1424,34 +1427,60 @@ select {
     border-radius: 10px;
 
     background:
-        #FBFCFB;
+        var(--background-card);
 
     cursor: pointer;
 
     text-align: left;
 
+    line-height: 1.2;
+
     transition:
         border-color var(--transition-fast),
         background var(--transition-fast),
         transform var(--transition-fast);
+
+}
+
+
+.quick-action.Opc1 {
+
+    background:
+        #effaff;
+}
+
+
+.quick-action.Opc2 {
+
+    background:
+        #f2f4f5;
+}
+
+
+.quick-action.Opc3 {
+
+    background:
+        #effbf7;
+}
+
+
+.quick-action.Opc4 {
+
+    background:
+        #fff8e8;
 }
 
 
 .quick-action:hover {
 
     border-color:
-        color-mix(
-            in srgb,
-            var(--brand-primary) 48%,
-            var(--border-color)
-        );
+        var(--border-color);
 
-    background:
-        color-mix(
-            in srgb,
-            var(--brand-primary-soft) 45%,
-            #FFFFFF
-        );
+    box-shadow:
+        var(--shadow-sm);
+
+    transform:
+        translateY(-1px);
 }
 
 
@@ -1459,6 +1488,55 @@ select {
 
     transform:
         scale(0.98);
+}
+
+
+.quick-icon.Opc1 {
+
+    background:
+        #dff7ff;
+
+    color:
+          #04b0ee;
+
+    border:
+        0px solid #bceeff;
+}
+
+
+.quick-icon.Opc2 {
+
+    background:
+        #eef0f2;
+
+    color:
+        #858d98;
+
+    border: 0px solid #d9dde1;
+}
+
+
+.quick-icon.Opc3 {
+
+    background:
+        #dffaf4;
+
+    color:
+        #03caab;
+
+    border: 0px solid #b8eee3;
+}
+
+
+.quick-icon.Opc4 {
+
+    background:
+        #fff0ec;
+
+    color:
+        #fd856a;
+
+    border: 0px solid #ffd3c8;
 }
 
 
@@ -1474,17 +1552,24 @@ select {
     justify-content: center;
     align-items: center;
 
-    border-radius: 9px;
-
-    background:
-        var(--brand-primary-soft);
-
-    color:
-        var(--brand-primary-hover);
+    border-radius: 12px;
 
     font-weight: 700;
+
+    font-size: 16px;
+
 }
 
+
+.quick-action > span:last-child {
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
 
 .quick-action strong {
 
@@ -1494,6 +1579,8 @@ select {
         var(--text-primary);
 
     font-size: 11px;
+
+    line-height: 1.25;
 }
 
 
@@ -1507,6 +1594,8 @@ select {
         var(--text-light);
 
     font-size: 9px;
+
+    line-height: 1.25;
 }
 
 
